@@ -29,9 +29,12 @@
       </object>
     </child>
   </object>
+  <object class="GtkMenu" id="menu2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+  </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
-    <signal name="destroy-event" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
