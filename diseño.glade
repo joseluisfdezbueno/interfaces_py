@@ -4,8 +4,16 @@
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
+    <property name="title" translatable="yes">Acerca de Planetario</property>
+    <property name="window_position">center</property>
     <property name="type_hint">dialog</property>
-    <property name="program_name">Glade</property>
+    <property name="program_name">Planetario</property>
+    <property name="version">1.0</property>
+    <property name="copyright" translatable="yes">Copyright 2015</property>
+    <property name="comments" translatable="yes">Programa de prueba para almacenar y obtener datos sobre planetas</property>
+    <property name="authors">José Luis Fernández Bueno</property>
+    <property name="documenters"></property>
+    <property name="license_type">lgpl-2-1</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
         <property name="can_focus">False</property>
@@ -35,6 +43,8 @@
   </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Planetario</property>
+    <property name="resizable">False</property>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
@@ -88,6 +98,12 @@
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
                 <property name="id_column">1</property>
+                <items>
+                  <item translatable="yes">Crear</item>
+                  <item translatable="yes">Obtener</item>
+                  <item translatable="yes">Actualizar</item>
+                  <item translatable="yes">Borrar</item>
+                </items>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -104,7 +120,7 @@
                   <object class="GtkLabel" id="label1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Campo1</property>
+                    <property name="label" translatable="yes">Nombre</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -116,7 +132,7 @@
                   <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Campo 2</property>
+                    <property name="label" translatable="yes">Superficie</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -128,7 +144,7 @@
                   <object class="GtkLabel" id="label5">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Campo3</property>
+                    <property name="label" translatable="yes">Gravedad</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -140,7 +156,7 @@
                   <object class="GtkLabel" id="label6">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Campo4</property>
+                    <property name="label" translatable="yes">Temperatura Media (Cº)</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -152,12 +168,24 @@
                   <object class="GtkLabel" id="label7">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Campo5</property>
+                    <property name="label" translatable="yes">Lunas</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Anillos</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -232,6 +260,18 @@
                     <property name="position">4</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkEntry" id="entry7">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">•</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -243,7 +283,6 @@
               <object class="GtkBox" id="box8">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="label8">
                     <property name="visible">True</property>
@@ -253,6 +292,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
+                    <property name="padding">65</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -265,21 +305,24 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
+                    <property name="padding">18</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="button1">
-                    <property name="label" translatable="yes">button</property>
+                    <property name="label" translatable="yes">Realizar</property>
                     <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <property name="yalign">0.49000000953674316</property>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
+                    <property name="expand">True</property>
                     <property name="fill">True</property>
+                    <property name="padding">220</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
