@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkAboutDialog" id="aboutdialog1">
+  <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Acerca de Planetario</property>
@@ -14,6 +14,8 @@
     <property name="authors">José Luis Fernández Bueno</property>
     <property name="documenters"></property>
     <property name="license_type">lgpl-2-1</property>
+    <signal name="close" handler="onCloseAbout" swapped="no"/>
+    <signal name="response" handler="onCloseAbout" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
         <property name="can_focus">False</property>
@@ -37,14 +39,12 @@
       </object>
     </child>
   </object>
-  <object class="GtkMenu" id="menu2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-  </object>
-  <object class="GtkWindow" id="window1">
+  <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Planetario</property>
     <property name="resizable">False</property>
+    <signal name="destroy-event" handler="onDeleteWindow" swapped="no"/>
+    <signal name="delete-event" handler="onDeleteWindow" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
@@ -61,6 +61,7 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Ayuda</property>
                 <property name="use_underline">True</property>
+                <signal name="button-press-event" handler="on_acercaDe_clicked" swapped="no"/>
                 <child type="submenu">
                   <object class="GtkMenu" id="menu3">
                     <property name="visible">True</property>
@@ -73,6 +74,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="button-press-event" handler="on_acercaDe_clicked" swapped="no"/>
+                        <signal name="activate" handler="on_acercaDe_clicked" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -93,7 +96,7 @@
             <property name="orientation">vertical</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkComboBoxText" id="comboboxtext1">
+              <object class="GtkComboBoxText" id="combobox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
@@ -132,7 +135,7 @@
                   <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Superficie</property>
+                    <property name="label" translatable="yes">Superficie (Km^2)</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -144,7 +147,7 @@
                   <object class="GtkLabel" id="label5">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Gravedad</property>
+                    <property name="label" translatable="yes">Gravedad (m/s^2)</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -261,7 +264,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="entry7">
+                  <object class="GtkEntry" id="entry6">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -297,7 +300,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="entry6">
+                  <object class="GtkEntry" id="entry7">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -310,7 +313,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button1">
+                  <object class="GtkButton" id="button">
                     <property name="label" translatable="yes">Realizar</property>
                     <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
@@ -318,6 +321,7 @@
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
                     <property name="yalign">0.49000000953674316</property>
+                    <signal name="clicked" handler="on_btn_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">True</property>
